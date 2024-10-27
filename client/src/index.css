@@ -1,13 +1,74 @@
 body {
-  margin: 0;
+  margin: 5%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/******** ChatBox Stuff ******** */
+.chatbot-container{
+  width: 80%;
+  margin: 0;
+  margin-top: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.chatbot-conversation-container{
+  width: 100%;
+  height: 30vh;
+  border: 2px solid green;
+}
+
+.chatbot-header{
+  margin: 20px;
+}
+
+
+/*********** Title ***********/
+
+.nav-container {
+  color: aliceblue;
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffcc;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 10px #00ffcc, 0px 0px 20px #00ffcc;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0px 0px 10px #00ffcc, 0px 0px 20px #00ffcc;
+  }
+
+  to {
+    text-shadow: 0px 0px 20px #00ffcc, 0px 0px 40px #00ffcc;
+  }
+}
+
+/************** Moving Text / Animated Text **************/
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;700&display=swap');
+.animateType{
+  font-size: 24px;
+  color: white;
+  font-weight: bolder;
+  font-family: 'Exo';
+
+}
+
+
+
+
+
