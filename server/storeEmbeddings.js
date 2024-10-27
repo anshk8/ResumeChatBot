@@ -1,14 +1,14 @@
-import { openai, supabase } from '.utils/config';
+const {openai, supabase} = require("./utils/config");
 
 
 //Only Ran Seperately by me (Ansh) to update Supabase Vector Database
 
 //Information to create embeddings out of
 const resumeContent = [
-    "2nd Year Computer Science student specializing in AI and Machine Learning at Carleton University.",
-    "LinkedIn: https://www.linkedin.com/in/ansh-kakkar-471a0a288/",
-    "Email: anshkakkar05@gmail.com",
-    "Hobbies: Riding bike, weightlifting, spending time with family"
+    "2nd Year Computer Science student specializing in AI and Machine Learning studying at Carleton University.",
+    "My LinkedIn is at this url: https://www.linkedin.com/in/ansh-kakkar-471a0a288/",
+    "I can be contacted via email at: anshkakkar05@gmail.com.",
+    "My Hobbies include Riding my bike, weightlifting, spending time with family."
 ];
 
 
@@ -28,7 +28,7 @@ async function main(input) {
         }
         
         // Insert content and embedding into Supabase
-        const {info, error} = await supabase.from('resume').insert(data) 
+        const {info, error} = await supabase.from('documents').insert(data) 
 
         //Error Checking
         if (error){
