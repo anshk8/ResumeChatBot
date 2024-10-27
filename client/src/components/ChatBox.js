@@ -8,15 +8,28 @@ const ChatBox = () => {
 
   async function sendMessage(message) {
     setLoading(true);
+    console.log("Sending message:", message);  // Log the message being sent
     try {
-      const res = await axios.post('http://localhost:5001/api/message', { message });
-      setResponse(res.data.modifiedMessage);
+        const res = await axios.post('http://localhost:5001/api/message', { message });
+
+        //Debuging log
+        console.log("Received response:", res.data.result);  
+        setResponse(res.data.result);
     } catch (error) {
-      setResponse("Error sending message: " + error.message);
+
+      //Debuging log
+        console.error("Error sending message:", error.response ? error.response.data : error.message);
+        setResponse("Error sending message: " + error.message);
+
     } finally {
-      setLoading(false);
+
+        setLoading(false);
+        //Debuging log
+        console.log("Loading finished");  
+        
     }
-  }
+}
+
 
   const handleSubmit = (e) => {
     e.preventDefault();  // Prevent page refresh on form submit
