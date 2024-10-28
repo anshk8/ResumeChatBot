@@ -1,11 +1,15 @@
 body {
-  margin: 5%;
+  
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+  
+  
+  background: radial-gradient(circle at 50% 50%, #1a1a40, #1a1a80, #0d0d3d);
+  
+
 }
 
 code {
@@ -13,26 +17,130 @@ code {
     monospace;
 }
 
+.App{
+  margin:0;
+  height: 60vh;
+}
+
 /******** ChatBox Stuff ******** */
 .chatbot-container{
-  width: 80%;
+  /* width: 80%;
   margin: 0;
   margin-top: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+
 }
 
 .chatbot-conversation-container{
+  
+
   width: 100%;
-  height: 30vh;
-  border: 2px solid green;
+  height: 400px;
+  overflow-y: auto;
+  
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 .chatbot-header{
-  margin: 20px;
+  /* margin: 20px; */
+  font-weight: bold;
+  margin-bottom: 10px;
+
+
 }
+
+#insert {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Styling for individual messages */
+.message {
+  display: inline-block;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  max-width: 75%;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.message-user {
+  align-self: flex-end;
+  background-color: #d1f7c4;
+}
+
+.message-bot {
+  align-self: flex-start;
+}
+
+/* Typing animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input area styling */
+.chatbot-input-container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+#user-input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #555;
+}
+
+
 
 
 /*********** Title ***********/
@@ -69,6 +177,161 @@ code {
 }
 
 
+
+
+
+
+/******* FOoter *******/
+/* Footer.css */
+.footer {
+ 
+  padding: 40px;
+  background-color: #1a1a40;
+  color: #00bfff;
+  font-size: 1rem;
+  text-align: center;
+  border-top: 2px solid #00bfff;
+  box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 20px #00bfff;
+  }
+  to {
+    text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;
+  }
+}
+
+/******* Loading Effect / Dots ****/
+/* LoadingDots.css */
+.loading-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #00bfff; /* Change to your preferred color */
+  animation: loading 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loading {
+  0%, 80%, 100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.5);
+  }
+}
+
+
+/**** Responsive Design *****/
+
+@media (max-width: 768px) {
+
+  
+  .nav-container {
+    font-size: 1.5rem;
+  }
+
+  .chatbot-container {
+    padding: 15px;
+    width: 70%;
+    margin-top: 80px;
+  }
+
+  .chatbot-conversation-container {
+    height: 300px;
+    padding: 10px;
+  }
+
+  .submit-btn {
+    padding: 8px 15px;
+  }
+
+  #user-input {
+    padding: 8px;
+  }
+
+  .footer {
+    padding: 20px;
+    position: relative;
+ 
+  }
+
+  .footer p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .App{
+    margin:0;
+    height: 60vh;
+  }
+
+  .nav-container {
+    font-size: 1.2rem;
+  }
+
+  .chatbot-header {
+    font-size: 1.5rem;
+  }
+
+  .chatbot-container {
+    padding: 15px;
+    width: 70%;
+    margin-top: 40px;
+  }
+
+  .chatbot-conversation-container {
+    height: 200px;
+  }
+
+  .submit-btn {
+    padding: 6px 10px;
+  }
+
+  #user-input {
+    font-size: 14px;
+  }
+
+  .footer {
+    padding: 15px;
+    
+    position: relative;
+  }
+
+  .footer p {
+    font-size: 0.8rem;
+  }
+}
 
 
 

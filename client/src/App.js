@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import ChatBox from './components/ChatBox'
 import MovingText from './components/MovingText'
-
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
        <NavBar />
       <MovingText />
       <ChatBox />
+      <Footer />
     </div>
   );
 }
