@@ -1,20 +1,35 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {ReactAnimatedEllipsis} from 'react-animated-ellipsis';
+import LoadingDots from './LoadingDots';
 
 const ChatBox = () => {
+
+  //For user input, loading and displaying response
   const [input, setInput] = useState("");
-  const [response, setResponse] = useState("");
+  const [response, setResponse] = useState("Please Note I am AI Ansh and SOMETIMES may be inaccurate :) ");
   const [loading, setLoading] = useState(false);
 
+  //Connect with server
   async function sendMessage(message) {
+
+    //Load Screen
     setLoading(true);
-    console.log("Sending message:", message);  // Log the message being sent
+
+    //Debug Purposes
+    console.log("Sending message:", message);  
+
+
     try {
+
+      //Response from backend
         const res = await axios.post('http://localhost:5001/api/message', { message });
 
         //Debuging log
         console.log("Received response:", res.data.result);  
         setResponse(res.data.result);
+      
+
     } catch (error) {
 
       //Debuging log
@@ -32,26 +47,38 @@ const ChatBox = () => {
 
 
   const handleSubmit = (e) => {
-    e.preventDefault();  // Prevent page refresh on form submit
+    // Prevent page refresh on form submit
+    e.preventDefault();  
     if (input.trim()) {
       sendMessage(input);
-      setInput("");  // Clear input field after sending
+
+      // Clear input field after sending response
+      setInput("");  
     }
   };
 
   return (
     <div className="chatbot-container">
       <div className="chatbot-header">
-        <p className="sub-heading">Less Words, More Chatting! Talk with AI Ansh below!</p>
+        <p className="sub-heading">Ansh's Interactive Portfolio Website. Chat with me!</p>
       </div>
 
-      {/* Response Display */}
+      {/* Response Display and Loading screen if loading */}
       <div id="insert" className="chatbot-conversation-container">
-        {loading ? "Loading..." : response}
+        {loading ? (
+          <LoadingDots />
+        ) : (
+          <div className="message message-bot">{response}</div>
+        )}
+
+
       </div>
 
-      {/* User Input Form */}
+
+      {/* User Input Form. On submit, send input to server*/}
       <form id="form" className="chatbot-input-container" onSubmit={handleSubmit}>
+
+        {/*User input */}
         <input
           onChange={(e) => setInput(e.target.value)}
           name="user-input"
@@ -61,6 +88,7 @@ const ChatBox = () => {
           placeholder="Chat with Ansh!"
           required
         />
+
         <button id="submit-btn" className="submit-btn" type="submit">Send</button>
       </form>
     </div>
