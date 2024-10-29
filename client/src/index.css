@@ -19,7 +19,13 @@ code {
 
 .App{
   margin:0;
-  height: 60vh;
+  margin-top: 50px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /******** ChatBox Stuff ******** */
@@ -254,20 +260,32 @@ code {
 
 @media (max-width: 768px) {
 
+  .App{
+  
+    justify-content: flex-end;
+    gap: 50px;
+  
+  }
   
   .nav-container {
     font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-container h1{
+    margin: -20px;
   }
 
   .chatbot-container {
-    padding: 15px;
+
     width: 70%;
-    margin-top: 80px;
+    
   }
 
   .chatbot-conversation-container {
     height: 300px;
     padding: 10px;
+ 
   }
 
   .submit-btn {
@@ -292,8 +310,14 @@ code {
 @media (max-width: 480px) {
 
   .App{
-    margin:0;
-    height: 60vh;
+  
+    justify-content: flex-end;
+    gap: 50px;
+  
+  }
+
+  span{
+    font-size: 18px;
   }
 
   .nav-container {
@@ -311,7 +335,11 @@ code {
   }
 
   .chatbot-conversation-container {
-    height: 200px;
+    height: 300px;
+  }
+
+  .chatbot-header p{
+    font-size: 14px;
   }
 
   .submit-btn {
@@ -323,8 +351,8 @@ code {
   }
 
   .footer {
-    padding: 15px;
-    
+    padding: 20px;
+    height: auto;
     position: relative;
   }
 

@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-    origin: 'https://resume-chat-bot-client-qghj947hb-anshs-projects-01f89063.vercel.app/',
+    origin: '*',
 }));
 
 
@@ -100,9 +100,11 @@ app.get('/', (req, res) => {
 });
 
 
-// Start the server on port 5000
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+module.exports = app;  // Exports app for Vercel without starting a local server
+
+// // Start the server on port 5000
+// const PORT = process.env.PORT || 5001;
+// app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+// });
 
