@@ -23,7 +23,7 @@ const ChatBox = () => {
     try {
 
       //Response from backend
-        const res = await axios.post('https://resume-chat-bot-server-7i42u6id8-anshs-projects-01f89063.vercel.app/api/message', { message });
+        const res = await axios.post('https://resume-chat-bot-server-dhixfnhlb-anshs-projects-01f89063.vercel.app/api/message', { message });
 
         //Debuging log
         console.log("Received response:", res.data.result);  
