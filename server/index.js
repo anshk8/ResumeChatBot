@@ -94,6 +94,11 @@ app.post('/api/message', async (req, res) => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the Resume Chat Bot API!');
+});
+
+
 // Start the server on port 5000
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
