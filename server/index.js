@@ -6,7 +6,7 @@ const app = express();
 
 app.use(cors({
 
-    origin: 'https://resume-chat-bot-client-dfkphl1lh-anshs-projects-01f89063.vercel.app/',
+   
     origin: '*',
     methods:["POST", "GET"],
     credentials: true
