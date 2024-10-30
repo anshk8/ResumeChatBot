@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {ReactAnimatedEllipsis} from 'react-animated-ellipsis';
+
 import LoadingDots from './LoadingDots';
 
 const ChatBox = () => {
@@ -23,7 +23,7 @@ const ChatBox = () => {
     try {
 
       //Response from backend
-        const res = await axios.post('https://resume-chat-bot-server-dhixfnhlb-anshs-projects-01f89063.vercel.app/api/message', { message });
+        const res = await axios.post('https://resume-chat-96hrvbjw2-anshs-projects-01f89063.vercel.app/api/message', { message });
 
         //Debuging log
         console.log("Received response:", res.data.result);  

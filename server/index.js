@@ -7,7 +7,7 @@ const app = express();
 app.use(cors({
 
    
-    origin: '*',
+    origin: 'https://resume-chat-bot-mmlx-client.vercel.app/',
     methods:["POST", "GET"],
     credentials: true
 
