@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-    origin: '*',
+    origin: 'https://resume-chat-bot-client-dfkphl1lh-anshs-projects-01f89063.vercel.app/',
 }));
 
 
